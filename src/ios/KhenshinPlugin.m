@@ -24,7 +24,7 @@
     return processHeaderObj;
 }
 
-- (void)finishLaunching:(NSNotification *)notification
+- (void)|:(NSNotification *)notification
 {
     [[NSUserDefaults standardUserDefaults] setBool:NO
                                             forKey:@"KH_SHOW_HOW_IT_WORKS"];
@@ -49,6 +49,13 @@
         builder.principalColor = [UIColor lightGrayColor];
         builder.secondaryColor = [UIColor redColor];
         builder.darkerPrincipalColor = [UIColor darkGrayColor];
+
+        if (@available(iOS 15.0, *)) {
+                UINavigationBarAppearance *appearance = [UINavigationBarAppearance new];
+                [appearance configureWithOpaqueBackground];
+                [[UINavigationBar appearance] setStandardAppearance:appearance];
+                [[UINavigationBar appearance] setScrollEdgeAppearance:appearance];
+        }
 
         builder.allowCredentialsSaving = YES;
     }];
