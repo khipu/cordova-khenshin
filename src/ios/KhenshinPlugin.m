@@ -24,7 +24,7 @@
     return processHeaderObj;
 }
 
-- (void)|:(NSNotification *)notification
+- (void):(NSNotification *)notification
 {
     [[NSUserDefaults standardUserDefaults] setBool:NO
                                             forKey:@"KH_SHOW_HOW_IT_WORKS"];
