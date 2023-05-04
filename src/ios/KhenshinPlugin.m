@@ -8,29 +8,7 @@
 
 - (void)pluginInitialize
 {
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishLaunching:) name:UIApplicationDidFinishLaunchingNotification object:nil];
-
-}
-
-- (UIView*) processHeader {
-
-    PaymentProcessHeader *processHeaderObj =    [[[NSBundle mainBundle] loadNibNamed:@"PaymentProcessHeader"
-                                                                               owner:self
-                                                                             options:nil]
-                                                 objectAtIndex:0];
-
-    //    return nil;
-    return processHeaderObj;
-}
-
-- (void):(NSNotification *)notification
-{
-    [[NSUserDefaults standardUserDefaults] setBool:NO
-                                            forKey:@"KH_SHOW_HOW_IT_WORKS"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-
-    [KhenshinInterface initWithBuilderBlock:^(KhenshinBuilder *builder){
+        [KhenshinInterface initWithBuilderBlock:^(KhenshinBuilder *builder){
         builder.APIUrl = @"https://khipu.com/app/enc/";
         builder.barCenteredLogo = [UIImage imageNamed:@"Bar Logo"];
         builder.barLeftSideLogo = [[UIImage alloc] init];
@@ -59,6 +37,22 @@
 
         builder.allowCredentialsSaving = YES;
     }];
+}
+
+- (UIView*) processHeader {
+
+    PaymentProcessHeader *processHeaderObj =    [[[NSBundle mainBundle] loadNibNamed:@"PaymentProcessHeader"
+                                                                               owner:self
+                                                                             options:nil]
+                                                 objectAtIndex:0];
+    return processHeaderObj;
+}
+
+- (void):(NSNotification *)notification
+{
+    [[NSUserDefaults standardUserDefaults] setBool:NO
+                                            forKey:@"KH_SHOW_HOW_IT_WORKS"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)startByPaymentId:(CDVInvokedUrlCommand*)command
