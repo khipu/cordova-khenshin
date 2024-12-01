@@ -1,5 +1,7 @@
 # Autorizar el pago en una aplicación Cordova
 
+:warning: **Deprecado**: por favor usa el nuevo y mejorado [plugin cordova-khipu plugin](https://www.npmjs.com/package/cordova-khipu)!
+
 Para Android, la biblioteca de Khipu Inside se llama **khenshin** y se distribuye como un artefacto android.
 
 Para iOS, la biblioteca de Khipu Inside se llama **khenshin** y se distribuye como un Cocoapod.
